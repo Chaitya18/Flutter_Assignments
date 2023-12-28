@@ -5,82 +5,115 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyQ51(),
+      title: 'Number Range App',
+      home: InputScreen(),
     );
   }
 }
 
-class MyQ51 extends StatefulWidget {
-  const MyQ51({super.key});
-
+class InputScreen extends StatefulWidget {
   @override
-  State<MyQ51> createState() => _MyQ51State();
+  _InputScreenState createState() => _InputScreenState();
 }
 
-class _MyQ51State extends State<MyQ51> {
-  TextEditingController num1 = new TextEditingController();
-  TextEditingController num2 = new TextEditingController();
-  int i = 0;
-  int j = 0;
-  List res = [];
+class _InputScreenState extends State<InputScreen> {
+  TextEditingController n1 = TextEditingController();
+  TextEditingController n2 = TextEditingController();
+
+  void navigateToResultScreen(BuildContext context) {
+    int num1 = int.tryParse(n1.text) ?? 0;
+    int num2 = int.tryParse(n2.text) ?? 0;
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultScreen(num1: num1, num2: num2),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Print Numbers Coming Between 2 numbers"),
+        title: Text('Number Range App'),
       ),
-      body: Column(
-        children: [
-          Container(
-            child: TextField(
-              controller: num1,
-              decoration: InputDecoration(labelText: "Enetr Number 1"),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: n1,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(labelText: 'Enter Number 1'),
             ),
-          ),
-          Container(
-            child: TextField(
-              controller: num2,
-              decoration: InputDecoration(labelText: "Enetr Number 2"),
+            TextField(
+              controller: n2,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(labelText: 'Enter Number 2'),
             ),
-          ),
-          ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  for (i = int.parse(num1.text) + 1;
-                      i <= (j = int.parse(num2.text));
-                      i++) {
-                    res.add(i);
-                  }
-                });
-                Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => My2ndPage(
-                                res: res,
-                              )))
-              },
-              child: Text("Show")),
-        ],
+            ElevatedButton(
+              onPressed: () => navigateToResultScreen(context),
+              child: Text('Show Numbers'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
+class ResultScreen extends StatelessWidget {
+  final int num1;
+  final int num2;
 
-class My2ndPage extends StatefulWidget {
-  const My2ndPage({super.key});
+  ResultScreen({required this.num1, required this.num2});
 
-  @override
-  State<My2ndPage> createState() => _My2ndPageState();
-}
+  List<int> generateNumberList() {
+    List<int> numbers = [];
 
-class _My2ndPageState extends State<My2ndPage> {
+    for (int i = num1; i <= num2; i++) {
+      numbers.add(i);
+    }
+
+    return numbers;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    List<int> numberList = generateNumberList();
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Number Range App - Result'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Numbers between $num1 and $num2:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: numberList
+                  .map((number) => Text(
+                        '$number',
+                        style: TextStyle(fontSize: 16),
+                      ))
+                  .toList(),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
