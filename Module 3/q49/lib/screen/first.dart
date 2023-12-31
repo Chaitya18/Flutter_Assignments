@@ -17,28 +17,28 @@ class Q49_1 extends StatelessWidget {
           ), //1st
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Container(
-              height: 190,
-              width: 190,
+              height: 150,
+              width: 150,
               decoration: BoxDecoration(color: Colors.lightBlue),
               margin: EdgeInsets.all(5),
             ), //2nd
             Container(
-              height: 190,
-              width: 190,
+              height: 150,
+              width: 150,
               decoration: BoxDecoration(color: Colors.lightBlue),
               margin: EdgeInsets.all(5),
             ), //3rd
           ]),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Container(
-              height: 190,
-              width: 190,
+              height: 150,
+              width: 150,
               decoration: BoxDecoration(color: Colors.lightBlue),
               margin: EdgeInsets.all(5),
             ), //5th
             Container(
-              height: 190,
-              width: 190,
+              height: 150,
+              width: 150,
               decoration: BoxDecoration(color: Colors.lightBlue),
               margin: EdgeInsets.all(5),
             ) //6th

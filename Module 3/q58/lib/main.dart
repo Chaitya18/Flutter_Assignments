@@ -5,44 +5,55 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
-.
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        colorSchemeSeed: const Color(0xff6750a4),
-        useMaterial3: true,
-      ),
-      home: const SliderExample(),
+      debugShowCheckedModeBanner: false,
+      home: MYQ58(),
     );
   }
 }
 
-class SliderExample extends StatefulWidget {
-  const SliderExample({super.key});
+class MYQ58 extends StatefulWidget {
+  const MYQ58({super.key});
 
   @override
-  State<SliderExample> createState() => _SliderExampleState();
+  State<MYQ58> createState() => _MYQ58State();
 }
 
-class _SliderExampleState extends State<SliderExample> {
-  double _currentSliderValue = 20;
-
+class _MYQ58State extends State<MYQ58> {
+  double currentslidervalue = 0;
+  Color cname = Colors.white;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Slider')),
+      backgroundColor: cname,
+      appBar: AppBar(title: Text('Slider Color Change')),
       body: Slider(
-        value: _currentSliderValue,
+        value: currentslidervalue,
         max: 100,
         divisions: 5,
-        label: _currentSliderValue.round().toString(),
+        label: currentslidervalue.round().toString(),
         onChanged: (double value) {
           setState(() {
-            _currentSliderValue = value;
+            currentslidervalue = value;
+            if (currentslidervalue == 20) {
+              cname = Colors.red;
+            } else if (currentslidervalue == 40) {
+              cname = Colors.green;
+            } else if (currentslidervalue == 60) {
+              cname = Colors.blue;
+            } else if (currentslidervalue == 80) {
+              cname = Colors.purple;
+            } else if (currentslidervalue == 100) {
+              cname = Colors.yellow;
+            } else {
+              cname = Colors.teal;
+            }
           });
         },
       ),
