@@ -5,19 +5,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login and Registration',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Login and Registration Form',
       home: LoginScreen(),
     );
   }
 }
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -28,23 +30,22 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
-  void navigateToRegistrationScreen() {
+  void registrationpage() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => RegistrationScreen()),
     );
   }
 
-  void performLogin() {
+  void loginPage() {
     if (_formKey.currentState!.validate()) {
       // Perform login logic here
       String email = username.text;
       String password = upassword.text;
 
-      // Example: Check credentials (replace with your authentication logic)
       if (email == "chaitya" && password == "123") {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => RegistrationScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoginDetails()));
       } else {
         print("Invalid credentials");
       }
@@ -79,22 +80,22 @@ class _LoginScreenState extends State<LoginScreen> {
               TextFormField(
                 controller: upassword,
                 obscureText: true,
-                decoration: InputDecoration(labelText: 'upassword'),
+                decoration: InputDecoration(labelText: 'password'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your upassword';
+                    return 'Please enter your password';
                   }
                   return null;
                 },
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: performLogin,
+                onPressed: loginPage,
                 child: Text('Login'),
               ),
               SizedBox(height: 10),
               TextButton(
-                onPressed: navigateToRegistrationScreen,
+                onPressed: registrationpage,
                 child: Text('Create an account'),
               ),
             ],
@@ -106,6 +107,8 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
 class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
+
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
 }
@@ -125,13 +128,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       String confirmupassword = upassword.text;
 
       // Example: Check if upasswords match (replace with your registration logic)
-      if (upassword == confirmupassword) {
-        // Successful registration, navigate to home or dashboard
-        // For now, just print a message
+      if (password == confirmupassword) {
         print("Registration successful!");
       } else {
         // upasswords don't match, show an error message
-        print("upasswords do not match");
+        print("passwords do not match");
       }
     }
   }
@@ -164,10 +165,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               TextFormField(
                 controller: upassword,
                 obscureText: true,
-                decoration: InputDecoration(labelText: 'upassword'),
+                decoration: InputDecoration(labelText: 'password'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your upassword';
+                    return 'Please enter your password';
                   }
                   return null;
                 },
@@ -176,10 +177,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               TextFormField(
                 controller: confirmupassword,
                 obscureText: true,
-                decoration: InputDecoration(labelText: 'Confirm upassword'),
+                decoration: InputDecoration(labelText: 'Confirm password'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please confirm your upassword';
+                    return 'Please confirm your password';
                   }
                   return null;
                 },
@@ -191,6 +192,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class LoginDetails extends StatelessWidget {
+  const LoginDetails({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: [Text("Username : Chaitya"), Text("Password : 123")],
         ),
       ),
     );
