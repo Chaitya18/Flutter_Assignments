@@ -111,10 +111,80 @@ class _Screen1State extends State<Screen1> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                     child: ListTile(
-                      leading: Image.network(
-                          "https://rasamalaysia.com/wp-content/uploads/2013/01/soba-noodle-soup-thumb.jpg"),
-                      title: Column(),
+                      leading: SizedBox(
+                          height: 100,
+                          width: 100, // fixed width and height
+                          child: Image.asset(
+                            "soba-noodle-soup-thumb-removebg-preview.png",
+                            height: 100,
+                            width: 100,
+                            fit: BoxFit.contain,
+                          )),
+                      title: Column(
+                        children: [
+                          Text("Soba Soup"),
+                          Text("No. 1 in Sales"),
+                          Text("\$20"),
+                        ],
+                      ),
+                      trailing: Icon(Icons.navigate_next),
+                    ),
+                  ),
+                  Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ListTile(
+                      leading: SizedBox(
+                          height: 100,
+                          width: 100, // fixed width and height
+                          child: Image.asset(
+                            "soba-noodle-soup-thumb-removebg-preview.png",
+                            height: 100,
+                            width: 100,
+                            fit: BoxFit.contain,
+                          )),
+                      title: Column(
+                        children: [
+                          Text("Soba Soup"),
+                          Text("No. 1 in Sales"),
+                          Text("\$20"),
+                        ],
+                      ),
+                      trailing: Icon(Icons.navigate_next),
+                    ),
+                  ),
+                  Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ListTile(
+                      leading: SizedBox(
+                          height: 100,
+                          width: 100, // fixed width and height
+                          child: Image.asset(
+                            "soba-noodle-soup-thumb-removebg-preview.png",
+                            height: 100,
+                            width: 100,
+                            fit: BoxFit.contain,
+                          )),
+                      title: Column(
+                        children: [
+                          Text("Soba Soup"),
+                          Text("No. 1 in Sales"),
+                          Text("\$20"),
+                        ],
+                      ),
                       trailing: Icon(Icons.navigate_next),
                     ),
                   ),
