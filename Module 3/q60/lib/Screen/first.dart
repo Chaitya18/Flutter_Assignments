@@ -30,10 +30,14 @@ class _Screen1State extends State<Screen1> {
                     children: [
                       Text(
                         "Restaurant",
-                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 26, fontWeight: FontWeight.bold),
                       ),
-                      Text("25-30 min"),
-                      Text("Orange Sandwiches is Delicious")
+                      Text("25-30 min", style: TextStyle(fontSize: 16)),
+                      Text(
+                        "Orange Sandwiches is Delicious",
+                        style: TextStyle(fontSize: 18),
+                      )
                     ],
                   ),
                 ),
@@ -189,6 +193,23 @@ class _Screen1State extends State<Screen1> {
                     ),
                   ),
                 ],
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(15),
+            child: ListTile(
+              leading: Text(
+                ". . . . . . . . . ",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+              ),
+              trailing: FloatingActionButton(
+                onPressed: () {},
+                child: Icon(
+                  Icons.shopping_bag_sharp,
+                  color: Colors.black,
+                ),
+                backgroundColor: Colors.orange,
               ),
             ),
           )

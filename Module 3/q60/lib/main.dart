@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:q60/Screen/Second.dart';
 import 'package:q60/Screen/first.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Screen1(),
+      home: My2ndScreen(),
     );
   }
 }
