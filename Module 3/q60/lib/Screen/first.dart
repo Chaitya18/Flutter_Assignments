@@ -11,7 +11,7 @@ class _Screen1State extends State<Screen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[250],
+      backgroundColor: Colors.grey[400],
       body: Column(
         children: [
           Container(
@@ -101,16 +101,27 @@ class _Screen1State extends State<Screen1> {
             ),
           ),
           Container(
-            child: Column(
-              children: [
-                Card(
-                  child: Image(
-                      image: NetworkImage(
-                          "https://rasamalaysia.com/wp-content/uploads/2013/01/soba-noodle-soup-thumb.jpg")),
-                )
-              ],
+            height: 400,
+            width: double.maxFinite,
+            margin: EdgeInsets.all(20),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    child: ListTile(
+                      leading: Image.network(
+                          "https://rasamalaysia.com/wp-content/uploads/2013/01/soba-noodle-soup-thumb.jpg"),
+                      title: Column(),
+                      trailing: Icon(Icons.navigate_next),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
+          )
         ],
       ),
     );
