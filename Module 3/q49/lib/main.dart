@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:q47/screen/first.dart';
-import 'package:q47/screen/second.dart';
 
 void main() {
   runApp(MyAssignmentQ47());
