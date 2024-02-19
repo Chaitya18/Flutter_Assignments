@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, depend_on_referenced_packages, prefer_const_literals_to_create_immutables, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:video_player/video_player.dart';
@@ -121,7 +123,7 @@ class AudioPage extends StatefulWidget {
 class _AudioPageState extends State<AudioPage> {
   late AudioPlayer music;
   bool isPlaying = false;
-  dynamic paths = 'audio/kftn.mp3';
+  Source paths = (AssetSource('audio/kftn.mp3'));
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -169,7 +171,7 @@ class _AudioPageState extends State<AudioPage> {
     );
   }
 
-  void playAudio() async {
+  Future<void> playAudio() async {
     dynamic result = music.play(paths);
     if (result == 1) {
       setState(() {
@@ -188,10 +190,12 @@ class _AudioPageState extends State<AudioPage> {
     super.dispose();
   }
 
-  void pauseAudio() async {
+  Future<void> pauseAudio() async {
     dynamic result = music.pause();
     if (result == 1) {
-      isPlaying = false;
+      setState(() {
+        isPlaying = false;
+      });
     }
   }
 }
