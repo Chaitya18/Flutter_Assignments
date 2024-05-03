@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "529792928737",
+    "project_id": "pointofsale-7b9df",
+    "storage_bucket": "pointofsale-7b9df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529792928737:android:b5707fbf77c96258f7e0a0",
+        "android_client_info": {
+          "package_name": "com.example.pos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529792928737-bdfuhckb27iv100hm32l5d6av0sb9sp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pos",
+            "certificate_hash": "793e742da539011029344c9e644b50f019b2b767"
+          }
+        },
+        {
+          "client_id": "529792928737-hkkhpk19pk7r4710jgvcvp02jllqj3om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5wcbOSCFT5cvZDfxN6PjJUAPQFFvq1r8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529792928737-f9i3dgi29m407o9tqtpnpnb997d0kin1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "529792928737-aj8lj5bt69haj7mst479i55kqh53bl0s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pos"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
